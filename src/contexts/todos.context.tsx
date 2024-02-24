@@ -1,15 +1,14 @@
 // 1. 만든다
 
 import { createContext, useContext, useState } from "react";
+import { ToDo } from "../types/toDo.type";
 
-type ToDo = {
-  id: number,
-  title: string,
-  content: string,
-  isComplete: boolean
+
+
+type ToDosContextType = {
+  toDos: ToDo[];
+  setToDos: React.Dispatch<React.SetStateAction<ToDo[]>>
 }
-
-type ToDosContextType = { toDos: ToDo[], setToDos: React.Dispatch<React.SetStateAction<ToDo[]>> }
 
 const initialValue: ToDosContextType = { toDos: [], setToDos: () => { } }
 
