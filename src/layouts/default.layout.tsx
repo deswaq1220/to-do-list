@@ -1,6 +1,7 @@
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/auth.context';
 
+import { useEffect } from 'react';
 import './default.layout.css';
 function DefaultLayOut() {
 
@@ -8,15 +9,19 @@ function DefaultLayOut() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  if (!isLoggedIn && location.pathname !== '/login') {
-    navigate('/login')
-    return null
-  }
+  useEffect(() => {
+    if (!isLoggedIn && location.pathname !== '/login') {
+      navigate('/login')
 
-  if (isLoggedIn && location.pathname === '/login') {
-    navigate('/');
-    return null;
-  }
+    }
+
+    if (isLoggedIn && location.pathname === '/login') {
+      navigate('/');
+
+    }
+
+  }, [isLoggedIn, location, navigate])
+
 
   return (
     <div id='layout'>

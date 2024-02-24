@@ -14,7 +14,7 @@ const App = () => {
           <Routes>
             <Route element={<DefaultLayOut />}>
 
-              <Route path='' element={<HomePage />} />
+              <Route path='/' element={<HomePage />} />
               <Route path='/todos/:toDoId' element={<ToDoDetailPage />} />
               <Route path='/login' element={<LoginPage />} />
             </Route>

@@ -1,4 +1,5 @@
 import { ChangeEventHandler, useState } from "react";
+import ToDoForm from "../components/ToDoForm";
 import ToDoList from "../components/ToDoList";
 import { useToDos } from "../contexts/todos.context";
 
@@ -34,9 +35,15 @@ function HomePage() {
     <div>
       <h1>할 일 목록</h1>
       <hr />
-      <input placeholder="title" onChange={handleChangeTitle} value={title} />
-      <textarea placeholder="content" onChange={handleChangeContent} value={content} />
-      <button onClick={handleClickAdd} >추가하기</button>
+      <ToDoForm
+        title={title}
+        content={content}
+        handleChangeTitle={handleChangeTitle}
+        handleChangeContent={handleChangeContent}
+        handleClickAdd={handleClickAdd}
+
+      />
+
       <hr />
 
       <ToDoList />
